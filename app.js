@@ -17,7 +17,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Exposes a bunch of methods for validating data
+// Exposes a bunch of methods for validating data.
 app.use(expressValidator());
 
 // populates req.cookies with any cookies that came along with the request
@@ -30,17 +30,17 @@ app.use(session({
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
 }));
 
 // // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // pass variables to all requests
 app.use((req, res, next) => {
   res.locals.user = req.user || null;
-  res.locals.currentPath = req.path;
   next();
 });
 
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// After allllll that above middleware, we finally handle our own routes!
+// Our own routes
 app.use('/', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
