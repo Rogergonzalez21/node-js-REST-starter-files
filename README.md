@@ -2,15 +2,12 @@
 My own NodeJS + MongoDB REST starter files
 
 It has by default:
-- ES6
 - Express
 - MongoDB
 - Mongoose
 - Passport
-- Slugs
-- MD5
-- uuid
-- nodemailer
+- Body Parser
+- Express Validator
 - eslint with AirBnb config
 - Many more!
 
